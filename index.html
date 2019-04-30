@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    
+    <!-- <script src='script.js'></script> -->
+
+    <!-- 引入样式 -->
+<!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+
+<link rel="stylesheet" href="./libs/iview/index.css">
+<link rel="stylesheet" href="./libs/swiper4/swiper.min.css">
+<!-- 引入组件库 -->
+
+  </head>
+  <body>
+    <style>
+      body {
+        -webkit-app-region: drag;
+        /*background: green;*/
+        height: 100%;
+        position: fixed;
+      }
+
+       #holder {
+
+            border: 10px dashed #ccc;
+
+            width: 300px;
+
+            height: 300px;
+
+            margin: 20px auto;
+
+        }
+
+ 
+
+            #holder.hover {
+
+                border: 10px dashed #333;
+
+            }
+
+            img {
+              width: 128px;
+            }
+
+html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swiper-slide {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .gallery-top {
+      height: 80%;
+      width: 100%;
+    }
+    .gallery-thumbs {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+
+
+    .album-list  > div {
+    width: 128px;
+    height: 128px;    
+    float: left;
+    border: 1px solid #aaa;
+    margin: 0 12px;
+    position: relative;
+    background-size: cover;
+    
+}
+
+
+.album-list  div.hover {
+
+  border: 1px solid red;
+}
+
+.btn-box {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    width: 100%;
+
+}
+
+.btn-box i {
+    cursor: pointer;
+}
+
+.el-tab-pane {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding: 55px 0 0;
+    box-sizing: border-box;
+    top: 0;
+}
+
+
+    </style>
+
+
+<!--     <div id="holder"></div>
+
+    <h5></h5> -->
+
+    <div id="app">
+      
+<!--       <img :src="i" alt="" v-for='i in list'>
+
+      <el-dialog :visible='visible' title='Hello'>
+        <p>Hello</p>
+      </el-dialog>
+    </div> -->
+
+      <!-- Swiper -->
+
+
+      <el-tabs v-model="activeName" @tab-click="onAlbumClick">
+         <el-tab-pane label="相册列表" name="first">
+            
+            <div class="album-list">
+              <div class="upload" @click='onAddAlbum'>+</div>
+
+              <div class="album" v-for='(a,i) in DATA.albums' @click='onAlbumClick(a)' :style="'background-image:url(' + a.list[0] + ')'" v-for='i in selectedItem.list'>
+
+                <div class="name">{{a.name}}({{a.list.length}})</div>
+
+                <div class="btn-box">
+                  <i class="el-icon-edit" @click='onEditAlbum(a, $event)'></i>
+                  <i class="el-icon-delete"  @click='onDeleteAlbum(i, $event)'></i>
+                </div>
+                
+              </div>
+            </div>
+         </el-tab-pane>
+         <el-tab-pane label="预览" name="second" class='second-panel'>
+           
+          <div class="swiper-container gallery-top" v-if='selectedItem'>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" :style="'background-image:url(' + i + ')'" v-for='i in selectedItem.list'></div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+          </div>
+          <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" :style="'background-image:url(' + i + ')'" v-for='i in selectedItem.list'  @dblclick='onDeletePic(i)'></div>
+            </div>
+          </div>
+
+
+         </el-tab-pane>
+       </el-tabs>
+    
+
+    <el-dialog
+  title="提示"
+  :visible.sync="dialogVisible"
+  width="30%"
+  :before-close="handleClose">
+  <el-input v-model="albumTitle" placeholder="请输入内容"></el-input>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="onAddAlbumComplete">确 定</el-button>
+  </span>
+</el-dialog>
+
+
+
+</div>
+
+  </body>
+
+  <script>
+    function onBtn1(e) {
+        
+        alert('Hello');      
+    }    
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+
+  <script src='./libs/vue.js'></script>
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+  <script src='./libs/iview/index.js'></script>
+  <script src='./libs/swiper4/swiper.min.js'></script>
+  <script src='./libs/jquery.js'></script>
+  <script src='app.js'></script>
+</html>
