@@ -1,0 +1,82 @@
+
+body {
+	margin: 0;
+	background: rgba(0,0,0,0);
+	padding: 2px;
+	overflow: hidden;
+}
+
+html:not(.focus):hover, html.focus {
+	outline: 1px solid #fff;
+	outline-offset: -1px;
+
+}
+
+#menu {
+	-webkit-app-region: drag;
+	display: none;
+}
+
+#menu li {
+	-webkit-app-region: no-drag!important;
+}
+	
+#main {
+	height: 100%;
+	width: 100%;
+	
+	color: #fff;
+	outline: none;
+	white-space: pre-wrap;
+	font-size: 12px;
+
+}
+
+.transparent {
+	opacity: 0;
+}
+
+div#page {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+    right: 0;
+    text-align: right;
+}
+
+.cur-page {
+	padding: 0 4px;
+}
+
+.filelist, .chapter-list {
+    position: absolute;
+    width: auto;
+
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
+
+.chapter-list {
+    background: #333;
+    max-height: 80%;
+    overflow: auto;
+
+}
+
+.chapter-list div:hover {
+    background: #fff;
+    color: #333;
+}
+
+.filelist div:hover {
+    background: #fff;
+    color: #000;
+}
+
+.filelist .active {
+    pointer-events: none;
+}
