@@ -1,0 +1,56 @@
+
+
+
+<h1>Dialog Demo</h1>
+
+<button id="btnShowMsg">Show Message</button>
+
+
+<h1>WebContents Demo</h1>
+
+<button id="btnCapture">Capture</button>
+
+<img src="" alt="" id="img-capture">
+
+<h1>Shell Demo</h1>
+<input type="text" id="path">
+<button id="btnOpen">Open File</button>
+
+<script>
+    var electron = require('electron')
+    var ipc = require('electron').ipcRenderer
+    document.getElementById('btnShowMsg').addEventListener('click', function(e) {
+
+    
+        ipc.send('display-dialog')
+    })
+
+    document.getElementById('btnCapture').addEventListener('click', function(e) {
+
+    
+        ipc.send('capture')
+    })
+
+    ipc.on('show-capture', (e, data)=> {
+        document.getElementById('img-capture').src = data
+    })
+
+    // shell 演示
+    document.getElementById('btnOpen').addEventListener('click', function(e) {
+
+        var path = document.getElementById('path')
+        electron.shell.openExternal(path.value)
+    })
+
+</script>
+
+<style>
+
+    img#img-capture {
+        display: inline-block;
+        border: red 5px solid;
+        max-width: 300px;
+    }
+
+
+</style>

@@ -2,12 +2,14 @@
 
 // 应用配置模块
 var settings
-function setupApp() {
 
-	function saveSettings() {
+function saveSettings() {
 
 	    localStorage['settings'] = JSON.stringify(settings)
 	}
+function setupApp() {
+
+	
 
 	settings = localStorage['settings']
 
@@ -32,6 +34,10 @@ setupApp()
 
 
 // 透明窗体模块
+
+function setupWindow() {
+	
+}
 var el = $('#main')
 
 var sx, sy

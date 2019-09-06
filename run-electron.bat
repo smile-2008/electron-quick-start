@@ -1,1 +1,1 @@
-electron D:\code\git\electron-quick-start\app\main
+electron D:\code\git\electron-quick-start\app\main jqx

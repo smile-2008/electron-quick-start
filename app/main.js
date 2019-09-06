@@ -4,24 +4,57 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+/**
+ * 加载 Dialog 模块
+ */
+require('./dialog-demo')
+require('./webContents-demo')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow() {
-    // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 800, height: 600, frame: true,
-    frame: false, background: '#777', transparent: true,webPreferences: {
+
+function extend(dest, src) {
+	
+	for(var k in src) {
+		dest[k] = src[k]
+	}
+}
+var argv =  require("process").argv
+var pageIndex = argv[1].indexOf('inspect') == -1 ? 2 : 3
+var page = argv[pageIndex] || "demo1"
+
+var optMap = {
+    jqx: {
+        frame: false,
+        transparent: true,
+        width: 210,
+        height: 165,
+        x: 3,
+        y: 625
+    }
+}
+
+
+var defOptions = { width: 800, height: 600, frame: true,
+    frame: true, background: '#777', transparent: false,webPreferences: {
       webSecurity: false,
       //...
-    } })
+    } }
+
+    if (optMap[page])
+    extend(defOptions, optMap[page])
+
+function createWindow() {
+    // Create the browser window.
+    mainWindow = new BrowserWindow(defOptions)
 
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/jqx/jqx.html`)
+    mainWindow.loadURL(`file://${__dirname}/${page}/${page}.html`)
     // mainWindow.loadURL(`file://${__dirname}/index.html`)
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
@@ -38,6 +71,7 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
