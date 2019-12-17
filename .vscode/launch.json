@@ -8,7 +8,7 @@
           "cwd": "${workspaceRoot}/app",
           "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
           "windows": {
-            "runtimeExecutable": "D:\\code\\shell\\electron.bat"
+            "runtimeExecutable": "E:\\Develop\\all\\shell\\electron.bat"
           },
           "program": "${workspaceRoot}/app/main.js",
           "protocol": "inspector"
