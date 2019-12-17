@@ -4,10 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
+    "start": "electron app/main.js",
     "electron_build": "electron-packager ./app quick --platform=win32 --arch=x64 --icon=./favicon.ico --overwrite"
-
-
   },
   "repository": {
     "type": "git",
@@ -31,6 +29,7 @@
     "electron-prebuilt": "^1.0.1"
   },
   "dependencies": {
+    "electron": "^7.0.0",
     "menubar": "^4.1.1"
   }
 }

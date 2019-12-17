@@ -1,0 +1,2 @@
+echo $*
+electron /develop/github/electron-quick-start/app/main.js $*

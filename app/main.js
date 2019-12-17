@@ -22,14 +22,36 @@ function extend(dest, src) {
 }
 var argv =  require("process").argv
 var pageIndex = argv[1].indexOf('inspect') == -1 ? 2 : 3
-var page = argv[pageIndex] || "demo1"
+var page = argv[pageIndex] || "jqx"
+// var page = argv[pageIndex] || "admin"
 
+var pageMap = {
+    "textman":  "page/window"
+}
+var page2
+if (pageMap[page]) {
+    page2 = pageMap[page]
+}else {
+    page2 = page
+}
+
+var dirMap = {
+    admin: '/develop/github/my-admin/electron/index.html'
+}
 var optMap = {
     jqx: {
         frame: false,
         transparent: true,
         width: 210,
         height: 165,
+        x: 3,
+        y: 625
+    },
+    textman: {
+        frame: false,
+        transparent: false,
+        width: 550,
+        height: 50,
         x: 3,
         y: 625
     }
@@ -39,18 +61,19 @@ var optMap = {
 var defOptions = { width: 800, height: 600, frame: true,
     frame: true, background: '#777', transparent: false,webPreferences: {
       webSecurity: false,
+      nodeIntegration: true
       //...
     } }
 
     if (optMap[page])
     extend(defOptions, optMap[page])
 
+var dir = dirMap[page] || `${__dirname}/${page}/${page2}.html`
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow(defOptions)
-
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/${page}/${page}.html`)
+    mainWindow.loadURL(`file://${dir}`)
     // mainWindow.loadURL(`file://${__dirname}/index.html`)
 
     // Open the DevTools.

@@ -24,7 +24,13 @@ function setupApp() {
 	        },
 	        curBook: ""
 	    }
-	}
+    }
+    
+    var isMac = navigator.platform == 'MacIntel'
+
+    if (isMac) {
+        document.documentElement.classList.add('is-mac')
+    }
 
 }
 
@@ -58,9 +64,13 @@ el.on('focus', (e) => {
 })
 el.on('mousedown', (e) => {
 
-	if (e.button == 1) {
+	if (e.button == 1 || e.button == 2) {
 		return
-	}
+    }
+    
+    console.log(e.button)
+
+    
     window.isMouseDown = true
 
     sx = e.screenX
