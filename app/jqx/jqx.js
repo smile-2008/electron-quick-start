@@ -294,8 +294,14 @@ $(window).on('mousewheel', (e) => {
 
 
     $('.cur-page').text(cur + 1)
+    
+    el.html('')
+    $('html').hide()
+    setTimeout(()=> {
 
-    el.text(page[cur])
+        el.text(page[cur])
+        $('html').show()
+    }, 1000)
 
     settings.bookIndex[curBook] = cur
 
@@ -333,9 +339,10 @@ $(window).on('keydown', (e) => {
 
 $('.cur-page').on('blur', (e) => {
 
-    var cur = e.target.innerText.trim()
+    var cur2 = e.target.innerText.trim()
 
-    if (cur) {
+    if (cur2) {
         el.text(page[cur])
+        cur = cur2
     }
 })

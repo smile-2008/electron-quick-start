@@ -22,6 +22,7 @@ function extend(dest, src) {
 }
 var argv =  require("process").argv
 var pageIndex = argv[1].indexOf('inspect') == -1 ? 2 : 3
+// var page = argv[pageIndex] || "codelab"
 var page = argv[pageIndex] || "jqx"
 // var page = argv[pageIndex] || "admin"
 
@@ -36,14 +37,15 @@ if (pageMap[page]) {
 }
 
 var dirMap = {
-    admin: '/develop/github/my-admin/electron/index.html'
+    admin: '/develop/github/my-admin/electron/index.html',
+    codelab: '/Develop/github/CodeLab/nw/index.html',
 }
 var optMap = {
     jqx: {
         frame: false,
         transparent: true,
-        width: 210,
-        height: 165,
+        width: 250,
+        height: 205,
         x: 3,
         y: 625
     },
