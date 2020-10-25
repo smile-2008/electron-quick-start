@@ -131,7 +131,9 @@ filelist.forEach((file, i) => {
 function openBook(book) {
 
     curBook = book
-    var text = fs.readFileSync(`${txtPath}${book}`).toString()
+    let file = `${txtPath}${book}`
+
+    var text = fs.readFileSync(file).toString()
     var list = text.split(/\n/)
 
     page = []
@@ -258,7 +260,7 @@ elChapterList.on('click', 'div', (e) => {
 
 
 
-openBook(settings.curBook)
+openBook(settings.curBook || "《夏至未至(2010修订版)》.txt")
 
 
 $('.cur-page').text(cur + 1)
