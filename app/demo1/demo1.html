@@ -1,7 +1,7 @@
 
 
-
-<h1>Dialog Demo</h1>
+<script src="../libs/vue.js"></script>
+<!-- <h1>Dialog Demo</h1>
 
 <button id="btnShowMsg">Show Message</button>
 
@@ -14,11 +14,40 @@
 
 <h1>Shell Demo</h1>
 <input type="text" id="path">
-<button id="btnOpen">Open File</button>
+<button id="btnOpen">Open File</button> -->
 
+<div id="app">
+    <img :src="item" alt="" v-for="item in list">
+</div>
+
+<style>
+    img {
+        width: 50px;
+        max-height: 100px;
+    }
+
+    img:hover {
+        transform: scale(8);
+    }
+</style>
 <script>
     var electron = require('electron')
     var ipc = require('electron').ipcRenderer
+
+    var fs = require('fs');
+    var folder = 'E:/下载/360极速浏览器下载/Picture/'
+    var list = fs.readdirSync(folder);
+
+    list = list.map((item)=> {
+        return folder + item
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            list: list
+        }
+    })    
     document.getElementById('btnShowMsg').addEventListener('click', function(e) {
 
     

@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../libs/iconfont/iconfont.css">
+        <link rel="stylesheet" href="../libs/element/index.css">
+        <link rel="stylesheet" href="./gallery.css">
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <header>
+                <span class="iconfont icon-minimize" @click="min"></span>
+                <span class="iconfont icon-maxmize-o" @click="max"></span>
+                <span class="iconfont icon-23" @click="close"></span>
+            </header>
+
+            <el-main>
+                <el-tabs>
+                    <el-tab-pane label="图片">
+                        <el-row>
+                            <el-form :inline="true" size="mini" action="#">
+                                <el-button @click="random()" size="mini">随机</el-button>
+                                <el-button @click="rename()" size="mini">重命名</el-button>
+                                <el-form-item>
+                                    <el-input v-model="imgIndex" style="width: 96px" @change="random(imgIndex)">
+                                        <span slot="suffix">/{{haveFiles.length}}</span>
+                                    </el-input>
+                                </el-form-item>
+                            </el-form>
+                        </el-row>
+                        <div class="img-container">
+                            <img :src="randomFileSrc" ref="elImg" @load="onImgLoad">
+
+                            <el-tooltip placement="bottom">
+                                    <div slot="content">
+                                        <div class="path">{{randomFile}}</div>
+                                        <div class="size">{{imgWidth}}*{{imgHeight}}</div>
+                                    </div>
+                                    <div class="filename">{{basename}}</div>
+                            </el-tooltip>
+                           
+                        </div>
+                    </el-tab-pane>
+                    <el-tab-pane label="检索">
+                        <el-row>
+                            <el-button @click="startSearch" size="mini">开始</el-button>
+                            <el-button @click="save" size="mini">存档</el-button>
+                            <el-button @click="addInput" size="mini">添加目录</el-button>
+                            <span class="total">共 {{totalCount}} 个文件</span>
+                        </el-row>
+                        <el-form size="mini">
+                            <el-form-item v-for="(folder, i) in folderList">
+                                <el-input v-model="folderList[i]" >
+                                    <i class="el-icon-remove" slot="append" @click="removeInput(i)"></i>
+                                </el-input>                               
+                            </el-form-item>
+                        </el-form>
+                        <ul>
+                            <li v-for="file in fileList">{{file}}</li>
+                        </ul>
+                    </el-tab-pane>
+                </el-tabs>
+            </el-main>
+        </div>
+
+        <script src="../libs/vue.min.js"></script>
+        <script src="../libs/element/index.js"></script>
+        <script src="./gallery.js"></script>
+    </body>
+</html>
