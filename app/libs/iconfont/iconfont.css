@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1582583394720'); /* IE9 */
+  src: url('iconfont.eot?t=1582583394720#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOEAAsAAAAAB8gAAAM1AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqDCIJGATYCJAMQCwoABCAFhG0HQxuzBsiOxDhG8YAj0cHD95v5d5hJSshKVai6DGy6Qg5LxamZf4non9lz/U4DBMCM9nkup3cN8fntLJexJq1Na1MvwDiggPbGaAsXSIFxw9hNlAdxGgKwKK8O0aVbnyGYKMAkAYichDsRM+VDobSkiSBaslIhNhDBNFYaz4H1/PPiVxplgkFEAmYOcLpOocMPu3++KsNUyBhKIBnPCWjrQAJ1gAKRVeqehAxjdUgs5zeKZsDExIAfdv/w9uerqZQoBmpRK9nHH89AgogipacB0ERUyROTYAoCfnhLwYCfr6YhAV7IeBOIAj6wTmIW3UkgUMouWLBk8dGZZMxx3O3bwD5FpzjbjmzZUkxP2RIWE1tXl3A1eZ3YvnBOxv2Xtjr4qmvmozeVI4dez9pzvUnGxZvlI/tvNc+8cKNccojYtm3VFgi3xuOrty/cVtwafrpWzutaW7aoOUNO3Kg9nK1bi+cIsX3XrQVhh5Cm69EcRN3yO/4aGnCHsrK848wcCpZHPQvS/OF/G3r1iv0XI/oN4TixeZZIFfyvYKr/+ND2D2/dmhD7o+gf1gELC6SBG5xbtypVGlns6vkDGwrLJly5VXloo8tXmsT7fs0EwFjZQYQAcrTx/jd9h27H/pTjM9v8b8YVAO9ne5N4SSpUyBDetaS15KdIWjYpVwYsStlyLPY8in6JSRiAhQX8ihQU9nkMbbHW6SAwKRbDoADlIDGpQipmHUSI0wRRTNrDorbu6+MU4SMRKgbUslSAoKDzMMjgFiQFvSAV8xMiFPc7ohRMwmKYKLJjnGolrM6+nhjoKfakWXZispfnIFtgBZmDtDstZ6KflHHWMO3nJ4J2w3oNssnuOk/7Y8zJn+42CgLHdnwv1+4mnKdzcjw76XtT9eSgXlYQJFvVr++UXaneZC8Xi874aCYSoJmCbRKzsCWYjEceDm0fYOXePwiNyzRymIhf09DhH4bGJ59E97aG6mnQguyuzmvVcC2X5DMdl0YCAhxsDj4eudi6CU5NDox52JLlw6aimUxAPVk9IklaqS+1ctqq682vzX3CHYAFmKWEIaRQIoKZm8hL4MLZ2mjUOJY7cWbkresBAAAA') format('woff2'),
+  url('iconfont.woff?t=1582583394720') format('woff'),
+  url('iconfont.ttf?t=1582583394720') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1582583394720#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-minimize:before {
+  content: "\e69b";
+}
+
+.icon-23:before {
+  content: "\e6d8";
+}
+
+.icon-maxmize-o:before {
+  content: "\e9ba";
+}
+
