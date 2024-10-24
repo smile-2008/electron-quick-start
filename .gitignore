@@ -3,3 +3,5 @@ node_modules
 /node_modules
 /dist
 .history
+app/gallery/config/files.json
+app/gallery/config/folders.json
