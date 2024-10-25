@@ -18,6 +18,7 @@ let defOptions = {
 
 
 app.on('ready', () => {
+    
     mainWindow = new BrowserWindow(defOptions)
     mainWindow.loadURL(`file://${dir}`)
 

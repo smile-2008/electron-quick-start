@@ -32,6 +32,8 @@ app.on('ready', () => {
     mainWindow.loadURL(`file://${dir}`)
 
     mainWindow.webContents.openDevTools()
+
+    global.mainWindow = mainWindow
 })
 
 app.on('activate', function () {
